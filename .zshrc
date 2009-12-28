@@ -14,6 +14,9 @@ alias gitcomet="git status; git add .; git commit -e; git status;"
 alias gitmerp="git status; git pull github master; git merge asdf; git push github master; git status;"
 alias gitawesome="git pull github master; git rebase master"
 alias pete="git status; git add .; git commit -ae; git push github master;git status"
+alias ss="script/server -u"
+alias sc="script/console"
+alias macrubya="/usr/local/bin/macirb"
 
 alias slice="ssh bob@174.143.175.89 -p46559"
 alias ...=" ../.."
@@ -36,7 +39,12 @@ setopt AUTO_CD
 
 export HISTSIZE SAVEHIST EDITOR HISTFILE
 
+if [[ -f "$HOME/.amazon_keys" ]]; then
+    source "$HOME/.amazon_keys";
+fi
 
+
+path=( $path /opt/local/bin )
 
 # supposed to send meta key , possibly not needed?
 [[ $TERM = "xterm" ]] && stty pass8 && bindkey -me
