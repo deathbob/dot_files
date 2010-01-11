@@ -26,6 +26,8 @@ alias ......=" ../../../../.."
 
 alias ll="ls -alh"
 
+alias rake="noglob rake"
+
 HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
@@ -44,7 +46,7 @@ if [[ -f "$HOME/.amazon_keys" ]]; then
 fi
 
 
-path=( $path /opt/local/bin )
+path=( $path /opt/local/bin /Users/bob/src/mongodb-osx-x86_64-2009-12-19/bin )
 
 # supposed to send meta key , possibly not needed?
 [[ $TERM = "xterm" ]] && stty pass8 && bindkey -me

@@ -1,0 +1,11 @@
+[user]
+	name= Bob Larrick
+	email = larrick@gmail.com
+[alias]
+	st = status
+	cm = commit
+	co = checkout
+	br = branch
+[merge]
+	tool = opendiff
+
