@@ -8,4 +8,8 @@
 	br = branch
 [merge]
 	tool = opendiff
+[diff]
+	color = auto
+[status]
+	color = auto
 
