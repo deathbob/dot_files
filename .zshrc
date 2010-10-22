@@ -20,12 +20,11 @@ alias rs="rails server -u"
 alias sc="script/console"
 alias rc="rails console"
 alias macrubya="/usr/local/bin/macirb"
-alias emacs="emacs -nw"
 alias csd="cap staging deploy"
 alias gph="git add .; git commit -ae; git push heroku"
 alias gpom="git push origin master"
 alias gpo="git push origin"
-
+alias emacs="emacs -nw"
 
 alias slice="ssh bob@174.143.175.89 -p46559"
 alias ...=" ../.."

@@ -6,8 +6,8 @@
 
 ;; Rinari
 ; ruby emacs stuff?  maybe only rails
-(add-to-list 'load-path "~/.emacs.d/rinari")
-(require 'rinari)
+;(add-to-list 'load-path "~/.emacs.d/rinari")
+;(require 'rinari)
 
 ; doing nothing that i can tell
 (require 'ansi-color)
