@@ -16,3 +16,5 @@
 [github]
 	user = deathbob
 	token = 9261408c20fa181e18f2fea97720b7f0
+[heroku]
+	account = personal

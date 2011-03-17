@@ -1,8 +1,11 @@
 ;; Interactively Do Things (highly recommended, but not strictly required)
-(require 'ido)
-(ido-mode t)
+;(require 'ido)
 ; enables textmate command + t type file opening (thank god)
 (setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+;(setq ido-use-filename-at-point 'guess)
+(ido-mode 1)
+
 
 ;; Rinari
 ; ruby emacs stuff?  maybe only rails
@@ -14,7 +17,7 @@
 
 (setq inhibit-splash-screen t);; Remove splash screen
 (setq-default indent-tabs-mode nil);; always replace tabs with spaces ; tabs are devil characters
-(setq-default tab-width 2);; set tab width to 2 for all buffers ; 2 for ruby, probly 4 for everywhere else.  3 just to fuck with people
+(setq-default tab-width 2);; set tab width to 2 for all buffers ; 2 for ruby, probly 4 for everywhere else.
 (show-paren-mode 1) ; highlight matching parens
 (display-time) ; time
 (setq column-number-mode t) ;  column
@@ -60,41 +63,41 @@
 
 
 
-(defun my-ido-project-files ()
-  "Use ido to select a file from the project."
-  (interactive)
-  (let (my-project-root project-files tbl)
-    ;;(setq my-project-root "/Users/bob/src/charles_luck/")
-    (setq my-project-root command-line-default-directory)
-    ;; get project files
-    (setq project-files
-          (split-string
-           (shell-command-to-string
-            (concat "find "
-                    my-project-root
-                    " \\( -name \"*.svn\" -o -name \"*.git\" \\) -prune -o -type f -print | grep -E -v \"\.(pyc)$\""
-                    )) "\n"))
-    ;; populate hash table (display repr => path)
-    (setq tbl (make-hash-table :test 'equal))
-    (let (ido-list)
-      (mapc (lambda (path)
-              ;; format path for display in ido list
-              (setq key (replace-regexp-in-string "\\(.*?\\)\\([^/]+?\\)$" "\\2|\\1" path))
-              ;; strip project root
-              (setq key (replace-regexp-in-string my-project-root "" key))
-              ;; remove trailing | or /
-              (setq key (replace-regexp-in-string "\\(|\\|/\\)$" "" key))
-              (puthash key path tbl)
-              (push key ido-list)
-              )
-            project-files
-            )
-      (find-file (gethash (ido-completing-read "project-files: " ido-list) tbl)))))
+;(defun my-ido-project-files ()
+;  "Use ido to select a file from the project."
+;  (interactive)
+;  (let (my-project-root project-files tbl)
+;    ;;(setq my-project-root "/Users/bob/src/charles_luck/")
+;    (setq my-project-root command-line-default-directory)
+;    ;; get project files
+;    (setq project-files
+;          (split-string
+;           (shell-command-to-string
+;            (concat "find "
+;                    my-project-root
+;                    " \\( -name \"*.svn\" -o -name \"*.git\" \\) -prune -o -type f -print | grep -E -v \"\.(pyc)$\""
+;                    )) "\n"))
+;    ;; populate hash table (display repr => path)
+;    (setq tbl (make-hash-table :test 'equal))
+;    (let (ido-list)
+;      (mapc (lambda (path)
+;              ;; format path for display in ido list
+;              (setq key (replace-regexp-in-string "\\(.*?\\)\\([^/]+?\\)$" "\\2|\\1" path))
+;              ;; strip project root
+;              (setq key (replace-regexp-in-string my-project-root "" key))
+;              ;; remove trailing | or /
+;              (setq key (replace-regexp-in-string "\\(|\\|/\\)$" "" key))
+;              (puthash key path tbl)
+;              (push key ido-list)
+;              )
+;            project-files
+;            )
+;      (find-file (gethash (ido-completing-read "project-files: " ido-list) tbl)))))
 
 
 
 ;; bind to a key for quick access
-(define-key global-map [f6] 'my-ido-project-files)
+;(define-key global-map [f6] 'my-ido-project-files)
 ;;(define-key global-map [f6] 'my-ido-project-files)
 
 (server-start)

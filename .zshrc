@@ -9,6 +9,27 @@ echo 'gitmerp - status, pull master, merge asdf, push master'
 echo
 }
 
+macom(){
+git add .
+git commit -m $1
+git push origin master
+}
+
+goku(){
+git add .
+git commit -m $1
+git push heroku master
+}
+
+
+rebpro(){
+git co production
+git rebase master
+git push origin production
+git co master
+}
+
+
 alias herogit="git commit -ae; git push heroku"
 alias gitcomet="git status; git add .; git commit -e; git status;"
 alias gitmerp="git status; git pull github master; git merge asdf; git push github master; git status;"
@@ -21,6 +42,7 @@ alias sc="script/console"
 alias rc="rails console"
 alias macrubya="/usr/local/bin/macirb"
 alias csd="cap staging deploy"
+alias cpd='cap production deploy'
 alias gph="git add .; git commit -ae; git push heroku"
 alias gpom="git push origin master"
 alias gpo="git push origin"
