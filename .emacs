@@ -1,5 +1,5 @@
 ;; Interactively Do Things (highly recommended, but not strictly required)
-;(require 'ido)
+(require 'ido)
 ; enables textmate command + t type file opening (thank god)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
@@ -7,9 +7,15 @@
 (ido-mode 1)
 
 
+(setq debug-on-error t)
+
+;(add-to-list 'load-path "~/elisp/rinari")
+(add-to-list 'load-path "~/elisp")
+(require 'find-file-in-project)
+
+
 ;; Rinari
 ; ruby emacs stuff?  maybe only rails
-;(add-to-list 'load-path "~/.emacs.d/rinari")
 ;(require 'rinari)
 
 ; doing nothing that i can tell
@@ -63,12 +69,16 @@
 
 
 
+
+; sets the root directory to run find-file-in-project against to the directory emacs was started in
+;(setq ffip-project-root command-line-default-directory)
+
 ;(defun my-ido-project-files ()
 ;  "Use ido to select a file from the project."
 ;  (interactive)
 ;  (let (my-project-root project-files tbl)
 ;    ;;(setq my-project-root "/Users/bob/src/charles_luck/")
-;    (setq my-project-root command-line-default-directory)
+
 ;    ;; get project files
 ;    (setq project-files
 ;          (split-string

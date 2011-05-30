@@ -10,7 +10,7 @@ echo
 }
 
 macom(){
-git add .
+git add -A
 git commit -m $1
 git push origin master
 }
@@ -46,7 +46,7 @@ alias cpd='cap production deploy'
 alias gph="git add .; git commit -ae; git push heroku"
 alias gpom="git push origin master"
 alias gpo="git push origin"
-alias emacs="emacs -nw"
+
 
 alias slice="ssh bob@174.143.175.89 -p46559"
 alias ...=" ../.."
@@ -78,7 +78,7 @@ if [[ -f "$HOME/.amazon_keys" ]]; then
 fi
 
 
-path=( $path /opt/local/bin /Users/bob/src/mongodb-osx-x86_64-2009-12-19/bin )
+path=( $path /opt/local/bin /Users/bob/src/mongodb-osx-x86_64-2009-12-19/bin /Users/bob/src/drush )
 
 # supposed to send meta key , possibly not needed?
 [[ $TERM = "xterm" ]] && stty pass8 && bindkey -me
@@ -98,7 +98,7 @@ path=( $path /opt/local/bin /Users/bob/src/mongodb-osx-x86_64-2009-12-19/bin )
 # get the name of the branch we are on
 
 setopt prompt_subst
-PROMPT='$(git_prompt)>'
+PROMPT='%~@$(git_prompt)>'
 
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
