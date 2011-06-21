@@ -1,0 +1,20 @@
+[user]
+	name= Bob Larrick
+	email = larrick@gmail.com
+[alias]
+	st = status
+	cm = commit
+	co = checkout
+	br = branch
+[merge]
+	tool = opendiff
+[diff]
+	color = auto
+[status]
+	color = auto
+
+[github]
+	user = deathbob
+	token = 9261408c20fa181e18f2fea97720b7f0
+[heroku]
+	account = personal
