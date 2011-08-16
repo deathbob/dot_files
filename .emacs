@@ -1,22 +1,45 @@
-;; Interactively Do Things (highly recommended, but not strictly required)
-(require 'ido)
-; enables textmate command + t type file opening (thank god)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-;(setq ido-use-filename-at-point 'guess)
-(ido-mode 1)
+(add-to-list 'load-path "~/.emacs.d/elisp/feature-mode")
+;; ;; optional configurations
+;; ;; default language if .feature doesn't have "# language: fi"
+(setq feature-default-language "en")
+;; ;; point to cucumber languages.yml or gherkin i18n.yml to use
+;; ;; exactly the same localization your cucumber uses
+;; ;(setq feature-default-i18n-file "/path/to/gherkin/gem/i18n.yml")
+;; ;; and load feature-mode
+;;(require 'feature-mode)
+;;(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+;; Damn cucumber feature mode not working, do i have to install yasnippets for that to work? I don't want yasnippets!
 
+
+
+
+
+;; Interactively Do Things (highly recommended, but not strictly required)
+;(require 'ido)
+; enables textmate command + t type file opening (thank god)
+;(setq ido-enable-flex-matching t)
+;(setq ido-everywhere t)
+;(setq ido-use-filename-at-point 'guess)
+;(ido-mode 1)
+
+(global-set-key (kbd "C-c t") 'rinari-find-file-in-project)
 
 (setq debug-on-error t)
 
-;(add-to-list 'load-path "~/elisp/rinari")
+;; ========== Prevent Emacs from making backup files ==========
+(setq make-backup-files nil)
+
+(add-to-list 'load-path "~/elisp/rinari")
 (add-to-list 'load-path "~/elisp")
-(require 'find-file-in-project)
+;(require 'find-file-in-project)
 
 
 ;; Rinari
 ; ruby emacs stuff?  maybe only rails
-;(require 'rinari)
+(require 'rinari)
+(add-to-list 'load-path "~/.emacs.d/elisp/")
+(require 'haml-mode)
+(add-hook 'haml-mode-hook 'rinari-minor-mode)
 
 ; doing nothing that i can tell
 (require 'ansi-color)

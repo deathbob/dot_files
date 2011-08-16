@@ -61,8 +61,8 @@ alias rake="noglob rake"
 HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
-EDITOR="nano"
-GEM_OPEN_EDITOR="mate"
+EDITOR="emacs"
+GEM_OPEN_EDITOR="emacs"
 R_HOME='/Library/Frameworks/R.framework/Resources/'
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
