@@ -10,7 +10,10 @@
 ;;(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 ;; Damn cucumber feature mode not working, do i have to install yasnippets for that to work? I don't want yasnippets!
 
-
+;; bind M-x rgrep to C-x r
+(global-set-key (kbd "C-x r") 'rgrep)
+;; bind M-p to Goto line
+(global-set-key (kbd "M-p") 'goto-line)
 
 
 
