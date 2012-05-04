@@ -1,3 +1,21 @@
+sleepy-merge(){
+  git co scheduled
+  git pull origin scheduled
+  git merge playspan_bob
+  git push origin scheduled
+  git co staging
+  git pull origin staging
+  git merge scheduled
+  git push origin staging
+  git co playspan_bob
+}
+
+sleepy_track(){
+  git branch --track scheduled origin/scheduled
+  git branch --track staging origin/staging
+  git branch --track hotfix origin/hotfix
+}
+
 git_prompt(){
 	git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3
 	echo $ref
@@ -46,6 +64,7 @@ alias cpd='cap production deploy'
 alias gph="git add .; git commit -ae; git push heroku"
 alias gpom="git push origin master"
 alias gpo="git push origin"
+alias be='bundle exec'
 
 
 alias slice="ssh bob@174.143.175.89 -p46559"
@@ -64,6 +83,8 @@ HISTFILE=~/.zsh_history
 EDITOR="emacs"
 GEM_OPEN_EDITOR="emacs"
 R_HOME='/Library/Frameworks/R.framework/Resources/'
+NODE_PATH='/usr/local/lib/node_modules'
+
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
@@ -71,14 +92,14 @@ setopt HIST_IGNORE_DUPS
 
 setopt AUTO_CD
 
-export HISTSIZE SAVEHIST EDITOR HISTFILE GEM_OPEN_EDITOR R_HOME
+export HISTSIZE SAVEHIST EDITOR HISTFILE GEM_OPEN_EDITOR R_HOME NODE_PATH
 
 if [[ -f "$HOME/.amazon_keys" ]]; then
     source "$HOME/.amazon_keys";
 fi
 
 
-path=( $path /opt/local/bin /Users/bob/src/mongodb-osx-x86_64-2009-12-19/bin /Users/bob/src/drush )
+path=( /usr/local/bin /usr/local/lib $path /opt/local/bin /Users/larrick/bin)
 
 # supposed to send meta key , possibly not needed?
 [[ $TERM = "xterm" ]] && stty pass8 && bindkey -me
@@ -102,3 +123,5 @@ PROMPT='%~@$(git_prompt)>'
 
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

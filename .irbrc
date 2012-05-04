@@ -34,6 +34,13 @@ IRB.conf[:USE_READLINE] = true
 # Auto indents suites
 IRB.conf[:AUTO_INDENT] = true
 
+
+require 'irb/completion'
+require 'irb/ext/save-history'
+ARGV.concat [ "--readline", "--prompt-mode", "simple" ]
+IRB.conf[:SAVE_HISTORY] = 100
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history" 
+
 # Why's aorta method to edit an object in YAML, awesome!
 # Source: http://rubyforge.org/snippet/detail.php?type=snippet&id=22
 # require 'yaml'

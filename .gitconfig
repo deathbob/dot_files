@@ -6,6 +6,7 @@
 	cm = commit
 	co = checkout
 	br = branch
+	cam = commit -a --amend -C HEAD
 [merge]
 	tool = opendiff
 [diff]
