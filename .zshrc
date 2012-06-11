@@ -99,7 +99,7 @@ if [[ -f "$HOME/.amazon_keys" ]]; then
 fi
 
 
-path=( /usr/local/bin /usr/local/lib $path /opt/local/bin /Users/larrick/bin)
+path=( /usr/local/sbin /usr/local/bin /usr/local/lib $path /opt/local/bin /Users/larrick/bin)
 
 # supposed to send meta key , possibly not needed?
 [[ $TERM = "xterm" ]] && stty pass8 && bindkey -me
